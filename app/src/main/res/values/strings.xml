@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">eComm</string>
+
+    <!-- Common -->
+
+    <!-- Main Activity -->
+    <string name="lista">Lista</string>
+</resources>
