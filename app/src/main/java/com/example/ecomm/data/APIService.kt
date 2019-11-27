@@ -1,5 +1,6 @@
-package com.example.ecomm
+package com.example.ecomm.data
 
+import com.example.ecomm.data.ProductSets
 import retrofit2.Response
 import retrofit2.http.*
 

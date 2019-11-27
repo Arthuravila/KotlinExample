@@ -1,5 +1,6 @@
-package com.example.ecomm
+package com.example.ecomm.data
 
+import com.example.ecomm.data.Product
 import com.squareup.moshi.Json
 
 data class ProductSets(

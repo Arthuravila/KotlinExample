@@ -1,15 +1,21 @@
-package com.example.ecomm
+package com.example.ecomm.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ecomm.data.Product
+import com.example.ecomm.data.ProductRepository
 import kotlinx.coroutines.launch
 
 class ProductViewModel(
     private val productRepo: ProductRepository
 ) : ViewModel() {
 
-    val productLiveData: MutableLiveData<List<Product>> = MutableLiveData()
+    private val _productLiveData = MutableLiveData<List<Product>>()
+    val productLiveData: LiveData<List<Product>>
+        get() = _productLiveData
+
 
     init {
         fetchData()
@@ -18,7 +24,7 @@ class ProductViewModel(
     private fun fetchData() {
         viewModelScope.launch {
             val lista = productRepo.getData()
-            productLiveData.value = lista?.sets
+            _productLiveData.value = lista?.sets
         }
     }
 

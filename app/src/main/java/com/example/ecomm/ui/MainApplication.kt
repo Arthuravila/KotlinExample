@@ -1,19 +1,23 @@
-package com.example.ecomm
+package com.example.ecomm.ui
 
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
+import com.example.ecomm.util.networkModule
+import com.example.ecomm.util.repositoryModule
+import com.example.ecomm.util.viewModelModule
 import org.koin.core.context.startKoin
-import org.koin.core.logger.Level
 
 class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            modules(listOf(viewModelModule))
+            modules(listOf(
+                viewModelModule,
+                repositoryModule,
+                networkModule
+            ))
         }
     }
 
