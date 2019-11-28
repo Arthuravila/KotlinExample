@@ -16,6 +16,7 @@ class ProductViewModel(
     val productLiveData: LiveData<List<Product>>
         get() = _productLiveData
 
+    val progressBarVisibility = MutableLiveData<Boolean>(true)
 
     init {
         fetchData()
@@ -23,8 +24,15 @@ class ProductViewModel(
 
     private fun fetchData() {
         viewModelScope.launch {
-            val lista = productRepo.getData()
-            _productLiveData.value = lista?.sets
+            runCatching {
+                productRepo.getData()
+            }.onSuccess {
+                progressBarVisibility.value = false
+                _productLiveData.value = it?.sets
+            }.onFailure {
+                progressBarVisibility.value = false
+                it.printStackTrace()
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.ecomm.util
+package com.example.ecomm.di
 
 import com.example.ecomm.data.ProductRepository
 import com.example.ecomm.data.ProductsApi
