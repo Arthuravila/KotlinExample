@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = productViewModel
         binding.lifecycleOwner = this
 
-
         toolbarMain.title = getString(R.string.lista)
         setSupportActionBar(toolbarMain)
 
